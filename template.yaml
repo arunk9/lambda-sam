@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2021-06-23'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-jenkins-demo-app
+  Sample SAM Template for sam-jenkins-demo-app
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  lambdaFunc:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      Handler: hello.handler
+      Runtime: nodejs12.x
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  HelloWorldFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt lambdaFunc.Arn
+  lambdaFuncIamRole:
+    Description: "Implicit IAM Role created for lambdaFunc function"
+    Value: !GetAtt lambdaFunc.Arn
