@@ -15,7 +15,7 @@ Resources:
     Type: 'AWS::Lambda::Function'
     Properties:
       CodeUri: hello-world/
-      Handler: hello.handler
+      Handler: hello.lambdaHandler
       Runtime: nodejs12.x
 
 Outputs:
