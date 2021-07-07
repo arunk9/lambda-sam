@@ -18,7 +18,7 @@ pipeline {
     stage('prod') {
       environment {
         STACK_NAME = 'sam-app-prod-stage'
-        S3_BUCKET = 'sam-jenkins-demo-us-east-2-user1'
+        S3_BUCKET = 'sam-jenkins-demo'
       }
       steps {
         withAWS(credentials: 'awscred', region: 'us-east-2') {
